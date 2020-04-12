@@ -1,0 +1,6 @@
+User enters the note in input field
+User clicks on the save button
+
+browser->server: Sends data application/json POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+ Uses JS to fetch data from server
