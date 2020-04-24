@@ -7,9 +7,12 @@ import './App.css';
 function App() {
   const [newSearch, setSearch ]= useState('')
   const [countries, setCountries] = useState([])
+  const [showClicked, setClicked] = useState(false)
+
 
 const updateSearch = (event) =>{
   setSearch(event.target.value)
+  setClicked(false)
 }
 
 const hook = () =>{
@@ -19,6 +22,9 @@ const hook = () =>{
     })
 }
 useEffect(hook, [])
+
+
+
 
 // const searchCountry = () => {
 //   countries.filter((country)=>(
@@ -35,7 +41,7 @@ const countryResults = newSearch === ""? [] : countries.filter((country)=>(
       <form>
         country: <input value={newSearch} onChange={updateSearch}/>
       </form>
-      <DisplayResult countries = {countryResults}/>
+      <DisplayResult countries = {countryResults} showClicked={showClicked} setClicked={setClicked}/>
     </div>
   );
 }
